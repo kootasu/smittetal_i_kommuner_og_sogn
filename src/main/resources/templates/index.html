@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax JQuery RestApi</title>
+    <script type="text/javascript" th:src="@{/ajaxfunctions.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div th:replace="fragments/header.html :: header"></div>
+
+<h1>Sogne via Ajax API-kald</h1>
+<div id="status">Status</div>
+<div id="carList"></div>
+<h2>Tilføj sogn</h2>
+<form id="createForm">
+    <input type="text" id="name" placeholder="Navn på sogn">
+    <input type="submit" value="Create">
+</form>
+
+<script type="text/javascript">
+
+    $(document).ready(function() { // Kald først jQuery-funktioner,når siden er klar
+        getParishes();
+        preventSubmit($("#createForm"));
+    });
+</script>
+
+</body>
+</html>
